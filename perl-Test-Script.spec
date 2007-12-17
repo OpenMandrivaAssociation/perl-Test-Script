@@ -16,7 +16,6 @@ BuildRequires:  perl-devel
 %endif
 BuildRequires:  perl(IPC::Run3)
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 The intent of this module is to provide a series of basic tests for scripts in
