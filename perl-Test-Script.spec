@@ -1,22 +1,22 @@
-%define module Test-Script
-%define name    perl-%{module}
-%define version 1.03
-%define release %mkrel 4
+%define upstream_name    Test-Script
+%define upstream_version 1.03
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-Summary:        Cross-platform basic tests for scripts
-License:        GPL or Artistic
-Group:          Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Test/%{module}-%{version}.tar.gz
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    Cross-platform basic tests for scripts
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.gz
+
 %if %{mdkversion} < 1010
 BuildRequires:  perl-devel
 %endif
 BuildRequires:  perl(IPC::Run3)
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The intent of this module is to provide a series of basic tests for scripts in
@@ -36,7 +36,7 @@ Where a clash exists between wanting more functionality and maintaining
 platform safety, this module will err on the side of platform safety.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -57,4 +57,3 @@ rm -rf %{buildroot}
 %doc Changes README LICENSE
 %{perl_vendorlib}/Test
 %{_mandir}/*/*
-
