@@ -15,6 +15,8 @@ Source0:    http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstre
 BuildRequires:  perl-devel
 %endif
 BuildRequires:  perl(IPC::Run3)
+BuildRequires:  perl(Probe::Perl)
+
 BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
