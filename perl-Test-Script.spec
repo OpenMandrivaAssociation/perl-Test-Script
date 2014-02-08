@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	6
+Release:	7
 
 Summary:	Cross-platform basic tests for scripts
 License:	GPL+ or Artistic
