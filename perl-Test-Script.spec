@@ -1,10 +1,10 @@
 %define modname	Test-Script
-%define modver	1.07
+%define modver	1.23
 
 Summary:	Cross-platform basic tests for scripts
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	15
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
@@ -38,8 +38,11 @@ platform safety, this module will err on the side of platform safety.
 %__perl Makefile.PL INSTALLDIRS=vendor
 %make
 
+%if 0
+# Tests require perl(Test2::V0), currently not packaged
 %check
 make test
+%endif
 
 %install
 %makeinstall_std
@@ -48,4 +51,3 @@ make test
 %doc Changes README LICENSE
 %{perl_vendorlib}/Test
 %{_mandir}/man3/*
-
