@@ -1,5 +1,5 @@
 %define modname	Test-Script
-%define modver	1.25
+%define modver	1.29
 
 Summary:	Cross-platform basic tests for scripts
 Name:		perl-%{modname}
