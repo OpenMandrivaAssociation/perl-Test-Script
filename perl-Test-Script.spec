@@ -1,14 +1,13 @@
 %define modname	Test-Script
-%define modver	1.29
 
 Summary:	Cross-platform basic tests for scripts
 Name:		perl-%{modname}
-Version:	%perl_convert_version %{modver}
-Release:	3
+Version:	1.29
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/pod/Test::Script
-Source0:	http://www.cpan.org/modules/by-module/Test/%{modname}-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Test/%{modname}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl-devel
 BuildRequires:	perl(IPC::Run3)
@@ -32,11 +31,11 @@ Where a clash exists between wanting more functionality and maintaining
 platform safety, this module will err on the side of platform safety.
 
 %prep
-%setup -qn %{modname}-%{modver}
+%autosetup -p1 -n %{modname}-%{version}
 
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor
-%make
+%make_build
 
 %if 0
 # Tests require perl(Test2::V0), currently not packaged
@@ -45,7 +44,7 @@ make test
 %endif
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc Changes README LICENSE
